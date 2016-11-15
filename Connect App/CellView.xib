@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="gJm-A3-rWe" customClass="CellView" customModule="Contager" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E2m-Vr-cqf" userLabel="activity View" customClass="AnimationView" customModule="Contager" customModuleProvider="target">
+                    <rect key="frame" x="25" y="25" width="10" height="10"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s7s-kf-Ug1" customClass="AnimationView" customModule="Contager" customModuleProvider="target">
+                    <rect key="frame" x="6" y="6" width="23" height="23"/>
+                    <color key="backgroundColor" red="0.94561606645584106" green="0.99783474206924438" blue="0.93303447961807251" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3M-9i-qd9">
+                    <rect key="frame" x="6" y="9" width="23" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="normalDayColor">
+                    <color key="value" red="0.15686274509803921" green="0.34901960784313724" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
+                    <color key="value" red="0.5490196078431373" green="0.84313725490196079" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="activityView" destination="E2m-Vr-cqf" id="JjW-hk-DdB"/>
+                <outlet property="dayLabel" destination="A3M-9i-qd9" id="drv-7L-6hf"/>
+                <outlet property="selectedView" destination="s7s-kf-Ug1" id="2Uj-gl-Feq"/>
+            </connections>
+            <point key="canvasLocation" x="523.5" y="582.5"/>
+        </view>
+    </objects>
+</document>

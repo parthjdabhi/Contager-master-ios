@@ -1,0 +1,66 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "70CE01924A085C8AB91FCB118F03302CC764F104",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "70CE01924A085C8AB91FCB118F03302CC764F104" : 0,
+    "0E8C7CB6645E2E57A8898741B31E2D8BF0746BC3" : 0,
+    "9213695FF6EC0B6F3422BBB5600ADCDB2F55B080" : 0,
+    "F250C186304C245C3CE29E8AF292C55C54C26F5E" : 0,
+    "950C846F49F4C04D09FFB2691E5DEE2DA524E1ED" : 0,
+    "6E7BA7BAA326271B451ACF7C68A3096894D862F1" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0CD95629-46BD-4BD6-B388-FDEB2BC0F55F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+<<<<<<< HEAD
+    "70CE01924A085C8AB91FCB118F03302CC764F104" : "iOS---Snagged\/",
+=======
+    "70CE01924A085C8AB91FCB118F03302CC764F104" : "Snagged_new-3\/",
+>>>>>>> origin/master
+    "0E8C7CB6645E2E57A8898741B31E2D8BF0746BC3" : "Snagged-Final%20Fixes\/",
+    "9213695FF6EC0B6F3422BBB5600ADCDB2F55B080" : "Snagged\/",
+    "F250C186304C245C3CE29E8AF292C55C54C26F5E" : "..\/..\/CVCalendar",
+    "950C846F49F4C04D09FFB2691E5DEE2DA524E1ED" : "Snagged-for-iOS-Swift-\/",
+    "6E7BA7BAA326271B451ACF7C68A3096894D862F1" : "SwiftFirebaseSmallAddition\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Connect App",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Connect App.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Harloch\/Snagged-App.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0E8C7CB6645E2E57A8898741B31E2D8BF0746BC3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rodyDevos\/SwiftFirebaseSmallAddition.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6E7BA7BAA326271B451ACF7C68A3096894D862F1"
+    },
+    {
+<<<<<<< HEAD
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Harloch\/iOS---Snagged",
+=======
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Harloch\/iOS---Snagged.git",
+>>>>>>> origin/master
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "70CE01924A085C8AB91FCB118F03302CC764F104"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Harloch\/Snagged---1.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9213695FF6EC0B6F3422BBB5600ADCDB2F55B080"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Harloch\/Snagged-for-iOS-Swift-.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "950C846F49F4C04D09FFB2691E5DEE2DA524E1ED"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Mozharovsky\/CVCalendar",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F250C186304C245C3CE29E8AF292C55C54C26F5E"
+    }
+  ]
+}

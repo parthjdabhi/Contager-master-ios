@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>385666513133-kpkmkrk1op2v2o9bh8rji4sdarermpad.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.385666513133-kpkmkrk1op2v2o9bh8rji4sdarermpad</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCTTOT1bdeAcDiMk7SomKmWhGqPejf08DA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>385666513133</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.harloch.Contager</string>
+	<key>PROJECT_ID</key>
+	<string>contager-f360b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>contager-f360b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:385666513133:ios:23d4aa5f99f7474d</string>
+	<key>DATABASE_URL</key>
+	<string>https://contager-f360b.firebaseio.com</string>
+</dict>
+</plist>

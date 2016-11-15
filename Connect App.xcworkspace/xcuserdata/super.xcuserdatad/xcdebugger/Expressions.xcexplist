@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SignUpSocialViewController.(instagramLogin(AnyObject) -&gt; ()).(closure #1).(closure #1):SignUpSocialViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "print(jsonDict.valueForKey(&quot;data&quot;).valueForKey(&quot;profile_picture&quot;))">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddContactsViewController.(viewDidLoad() -&gt; ()).(closure #1):AddContactsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "print(snapshot)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

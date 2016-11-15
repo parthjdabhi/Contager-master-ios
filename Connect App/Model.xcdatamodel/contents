@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="16A323" minimumToolsVersion="Xcode 7.0">
+    <entity name="Activity" representedClassName=".Activity" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selectedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="date" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Date" inverseName="activities" inverseEntity="Date" syncable="YES"/>
+    </entity>
+    <entity name="Date" representedClassName=".DateShort" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Activity" inverseName="date" inverseEntity="Activity" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Activity" positionX="-54" positionY="-9" width="128" height="135"/>
+        <element name="Date" positionX="-63" positionY="-18" width="128" height="75"/>
+    </elements>
+</model>
