@@ -11,6 +11,7 @@ import Firebase
 import SDWebImage
 import Alamofire
 
+//Add new contact request
 class AddContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     var ref:FIRDatabaseReference!
@@ -41,7 +42,7 @@ class AddContactsViewController: UIViewController, UITableViewDataSource, UITabl
                 
                 var contained = false
                 
-                if let friendRequests = snap.value!["friendRequests"] as? [String: String]{
+                if let friendRequests = snap.value!["friendRequests"] as? [String: String] {
                     for (_,value) in friendRequests {
                         if value == userID {
                             contained = true
@@ -50,7 +51,7 @@ class AddContactsViewController: UIViewController, UITableViewDataSource, UITabl
                     }
                 }
                 
-                if let friends = snap.value!["friends"] as? [String: String]{
+                if let friends = snap.value!["friends"] as? [String: String] {
                     for (_,value) in friends {
                         if value == userID {
                             contained = true
@@ -61,8 +62,8 @@ class AddContactsViewController: UIViewController, UITableViewDataSource, UITabl
                 
                 
                 if userID != snap.key  && contained == false {
-                    let userFirstName = snap.value!["userFirstName"] as! String!
-                    let userLastName = snap.value!["userLastName"] as! String!
+                    let userFirstName:String = snap.value!["userFirstName"] as? String ?? ""
+                    let userLastName:String = snap.value!["userLastName"] as? String ?? ""
                     var noImage = false
                     var image = UIImage(named: "no-pic.png")
                     if let base64String = snap.value!["image"] as! String! {

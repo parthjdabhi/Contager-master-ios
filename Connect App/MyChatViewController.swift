@@ -460,7 +460,7 @@ class MyChatViewController: JSQMessagesViewController {
         } else {
             cell.textView!.textColor = UIColor.blackColor()
             FIRDatabase.database().reference().child("users").child(message["userId"] as? String ?? "").child("profileData").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-                AppState.sharedInstance.currentUser = snapshot
+                //AppState.sharedInstance.currentUser = snapshot
                 if let base64String = snapshot.value?["userPhoto"] as? String {
                     cell.avatarImageView.image = JSQMessagesAvatarImageFactory.circularAvatarImage(CommonUtils.sharedUtils.decodeImage(base64String), withDiameter: UInt(kJSQMessagesCollectionViewAvatarSizeDefault))
                 } else {

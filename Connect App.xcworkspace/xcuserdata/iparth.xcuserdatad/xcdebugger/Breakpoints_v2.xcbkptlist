@@ -92,7 +92,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/SignUpSocialViewController.swift"
-                  timestampString = "500912496.815674"
+                  timestampString = "501311595.773949"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "214"
@@ -107,7 +107,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/SignUpSocialViewController.swift"
-                  timestampString = "500912496.815811"
+                  timestampString = "501311595.774108"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "214"
@@ -188,7 +188,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/SignUpSocialViewController.swift"
-                  timestampString = "500912496.817456"
+                  timestampString = "501311595.775971"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "126"
@@ -203,7 +203,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/SignUpSocialViewController.swift"
-                  timestampString = "500912496.817692"
+                  timestampString = "501311595.776141"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "127"
@@ -316,7 +316,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/FirebaseSignInViewController.swift"
-                  timestampString = "500912496.819521"
+                  timestampString = "501311595.778184"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "128"
@@ -331,7 +331,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/FirebaseSignInViewController.swift"
-                  timestampString = "500912496.819675"
+                  timestampString = "501311595.778341"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
@@ -632,15 +632,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Connect App/InboxViewController.swift"
-            timestampString = "495375496.848332"
+            timestampString = "501311594.33269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -652,75 +652,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Connect App/InboxViewController.swift"
-            timestampString = "492784832.210345"
+            timestampString = "501311594.33269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Connect App/InboxViewController.swift"
-            timestampString = "492784832.210345"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Connect App/InboxViewController.swift"
-            timestampString = "495375496.848332"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Connect App/InboxViewController.swift"
-            timestampString = "492784832.210345"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Connect App/InboxViewController.swift"
-            timestampString = "495375496.848332"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -824,7 +760,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Connect App/PhotoViewController.swift"
@@ -875,22 +811,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Connect App/InboxViewController.swift"
-            timestampString = "492776312.014834"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Connect App/FriendSocialMediaViewController.swift"
             timestampString = "492776314.5028"
             startingColumnNumber = "9223372036854775807"
@@ -908,7 +828,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/FriendSocialMediaViewController.swift"
-                  timestampString = "500912496.822706"
+                  timestampString = "501311595.781591"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -923,7 +843,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/FriendSocialMediaViewController.swift"
-                  timestampString = "500912496.822842"
+                  timestampString = "501311595.781723"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -938,7 +858,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/FriendSocialMediaViewController.swift"
-                  timestampString = "500912496.822959"
+                  timestampString = "501311595.781835"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -953,7 +873,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/FriendSocialMediaViewController.swift"
-                  timestampString = "500912496.823134"
+                  timestampString = "501311595.782003"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -975,7 +895,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "175"
             endingLineNumber = "175"
-            landmarkName = "mailComposeController(_:didFinishWithResult:error:)"
+            landmarkName = "showSendMailErrorAlert()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -991,8 +911,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "162"
             endingLineNumber = "162"
-            landmarkName = "configuredMailComposeViewController()"
-            landmarkType = "5">
+            landmarkName = "FriendProfileContentViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1018,7 +938,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/FriendProfileContentViewController.swift"
-                  timestampString = "500912496.826209"
+                  timestampString = "501311595.78527"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -1033,7 +953,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/FriendProfileContentViewController.swift"
-                  timestampString = "500912496.826335"
+                  timestampString = "501311595.785492"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -1048,7 +968,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/FriendProfileContentViewController.swift"
-                  timestampString = "500912496.826437"
+                  timestampString = "501311595.785688"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -1063,7 +983,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/FriendProfileContentViewController.swift"
-                  timestampString = "500912496.826544"
+                  timestampString = "501311595.785818"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -1320,7 +1240,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/FriendSocialMediaViewController.swift"
-                  timestampString = "500912496.838301"
+                  timestampString = "501311595.799441"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "132"
@@ -1335,7 +1255,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/FriendSocialMediaViewController.swift"
-                  timestampString = "500912496.838432"
+                  timestampString = "501311595.799637"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "132"
@@ -1368,7 +1288,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/SearchViewController.swift"
-                  timestampString = "500912496.839479"
+                  timestampString = "501311595.800978"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "35"
@@ -1383,7 +1303,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/SearchViewController.swift"
-                  timestampString = "500912496.839637"
+                  timestampString = "501311595.801218"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "36"
@@ -1416,7 +1336,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/NoteViewController.swift"
-                  timestampString = "500912496.840533"
+                  timestampString = "501311595.802431"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "44"
@@ -1431,7 +1351,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/NoteViewController.swift"
-                  timestampString = "500912496.840673"
+                  timestampString = "501311595.802574"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "45"
@@ -1464,7 +1384,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/NoteViewController.swift"
-                  timestampString = "500912496.841685"
+                  timestampString = "501311595.803716"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -1479,7 +1399,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/NoteViewController.swift"
-                  timestampString = "500912496.84182"
+                  timestampString = "501311595.803939"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"
@@ -1560,7 +1480,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/NoteViewController.swift"
-                  timestampString = "500912496.84454"
+                  timestampString = "501311595.806601"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "152"
@@ -1575,7 +1495,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/NoteViewController.swift"
-                  timestampString = "500912496.844793"
+                  timestampString = "501311595.806817"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "153"
@@ -1588,7 +1508,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Connect App/AddressBookViewController.swift"
@@ -1864,7 +1784,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/SignUpSocialViewController.swift"
-                  timestampString = "500912496.855078"
+                  timestampString = "501311595.818928"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "113"
@@ -1879,7 +1799,7 @@
                   moduleName = "Contager"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/SignUpSocialViewController.swift"
-                  timestampString = "500912496.855242"
+                  timestampString = "501311595.819146"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "114"
@@ -2045,6 +1965,166 @@
             endingLineNumber = "233"
             landmarkName = "managedObjectModel"
             landmarkType = "19">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Connect App/FriendSearchViewController.swift"
+            timestampString = "501071522.902204"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Connect App/AddContactsViewController.swift"
+            timestampString = "501071527.566053"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Connect App/SearchViewController.swift"
+            timestampString = "501071533.046172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Connect App/RecentChatViewController.swift"
+            timestampString = "501071635.067781"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Connect App/MyChatViewController.swift"
+            timestampString = "501071642.165441"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Connect App/AddContactsViewController.swift"
+            timestampString = "501072619.356545"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Connect App/InboxViewController.swift"
+            timestampString = "501074361.091271"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Connect App/InboxViewController.swift"
+            timestampString = "501311594.33269"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Contager.InboxViewController.(tableView (__ObjC.UITableView, cellForRowAtIndexPath : __ObjC.NSIndexPath) -&gt; __ObjC.UITableViewCell).(closure #2)"
+                  moduleName = "Contager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/InboxViewController.swift"
+                  timestampString = "501311595.826181"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "4168">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Contager.InboxViewController.(tableView (__ObjC.UITableView, cellForRowAtIndexPath : __ObjC.NSIndexPath) -&gt; __ObjC.UITableViewCell).(closure #2).(closure #1)"
+                  moduleName = "Contager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iparth/Desktop/iWork/Dustin%20Allen%20-%20Harloch/3%20Contager/Contager-master-ios---11-Nov-master/Connect%20App/InboxViewController.swift"
+                  timestampString = "501311595.826341"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

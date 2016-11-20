@@ -130,29 +130,39 @@ class InboxViewController: UIViewController ,UITableViewDataSource, UITableViewD
         }
         
         cell.onAcceptButtonTapped = {
-            let friendRequests = AppState.sharedInstance.currentUser.value!["friendRequests"]
-            let fid = self.userArry[indexPath.row].getUid()
-            var requests = friendRequests as! [String:String]
-            
-            for (key, value) in requests {
-                if value == fid {
-                    requests.removeValueForKey(key)
-                }
-            }
             
             let userID = FIRAuth.auth()?.currentUser?.uid
             let userRef = self.ref.child("users").child(userID!)
             
-            let dic = ["friendRequests" : requests]
+            userRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                // Get user value
+                AppState.sharedInstance.currentUser = snapshot
+                
+                let friendRequests = AppState.sharedInstance.currentUser.value!["friendRequests"]
+                let fid = self.userArry[indexPath.row].getUid()
+                var requests = friendRequests as! [String:String]
+                
+                for (key, value) in requests {
+                    if value == fid {
+                        requests.removeValueForKey(key)
+                    }
+                }
+                
+                let dic = ["friendRequests" : requests]
+                
+                userRef.updateChildValues(dic)
+                userRef.child("friends").childByAutoId().setValue(fid)
+                
+                let friendRef = self.ref.child("users").child(fid)
+                friendRef.child("friends").childByAutoId().setValue(userID)
+                
+                self.userArry.removeAtIndex(indexPath.row)
+                self.tableView.reloadData()
+                
+            }) { (error) in
+                print(error.localizedDescription)
+            }
             
-            userRef.updateChildValues(dic)
-            userRef.child("friends").childByAutoId().setValue(fid)
-            
-            let friendRef = self.ref.child("users").child(fid)
-            friendRef.child("friends").childByAutoId().setValue(userID)
-            
-            self.userArry.removeAtIndex(indexPath.row)
-            self.tableView.reloadData()
             
 //            FIRDatabase.database().reference().child("users").child(fid).child("userInfo").observeSingleEventOfType(.Value, withBlock: {(snapshot: FIRDataSnapshot) -> Void in
 //                
