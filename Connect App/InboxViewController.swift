@@ -44,12 +44,12 @@ class InboxViewController: UIViewController ,UITableViewDataSource, UITableViewD
                         
                         if !(snapshot.value is NSNull) {
                             
-                            let userFirstName = snapshot.value!["userFirstName"] as! String!
-                            let userLastName = snapshot.value!["userLastName"] as! String!
+                            let userFirstName = snapshot.value!["userFirstName"] as? String ?? ""
+                            let userLastName = snapshot.value!["userLastName"] as? String ?? ""
                             
                             var noImage = false
                             var image = UIImage(named: "no-pic.png")
-                            if let base64String = snapshot.value!["image"] as! String! {
+                            if let base64String = snapshot.value!["image"] as? String! {
                                 image = CommonUtils.sharedUtils.decodeImage(base64String)
                             } else {
                                 noImage = true
@@ -76,22 +76,16 @@ class InboxViewController: UIViewController ,UITableViewDataSource, UITableViewD
                             }
                             
                             if let email = snapshot.value!["email"] as? String {
-                                self.userArry.append(UserData(userName: self.userName!, photoURL: self.photoURL!, uid: snapshot.key, image: image!, email: email, noImage: noImage))
+                                self.userArry.append(UserData(userName: self.userName ?? "", photoURL: self.photoURL ?? "", uid: snapshot.key, image: image ?? UIImage(named: "no-pic.png")!, email: email, noImage: noImage))
                             } else {
-                                self.userArry.append(UserData(userName: self.userName!, photoURL: self.photoURL!, uid: snapshot.key, image: image!, email: "test@test.com", noImage: noImage))
+                                self.userArry.append(UserData(userName: self.userName ?? "", photoURL: self.photoURL ?? "", uid: snapshot.key, image: image ?? UIImage(named: "no-pic.png")!, email: "test@test.com", noImage: noImage))
                             }
                             self.tableView.reloadData()                            
                         }
                     })
                 }
-                
-                
             }
-            
-            
         })
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -140,7 +134,7 @@ class InboxViewController: UIViewController ,UITableViewDataSource, UITableViewD
                 
                 let friendRequests = AppState.sharedInstance.currentUser.value!["friendRequests"]
                 let fid = self.userArry[indexPath.row].getUid()
-                var requests = friendRequests as! [String:String]
+                var requests = friendRequests as? [String:String] ?? [:]
                 
                 for (key, value) in requests {
                     if value == fid {

@@ -60,7 +60,6 @@ class AddContactsViewController: UIViewController, UITableViewDataSource, UITabl
                     }
                 }
                 
-                
                 if userID != snap.key  && contained == false {
                     let userFirstName:String = snap.value!["userFirstName"] as? String ?? ""
                     let userLastName:String = snap.value!["userLastName"] as? String ?? ""
