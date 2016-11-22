@@ -44,12 +44,12 @@ class InboxViewController: UIViewController ,UITableViewDataSource, UITableViewD
                         
                         if !(snapshot.value is NSNull) {
                             
-                            let userFirstName = snapshot.value!["userFirstName"] as? String ?? ""
-                            let userLastName = snapshot.value!["userLastName"] as? String ?? ""
+                            let userFirstName = snapshot.value!["userFirstName"] as? String ?? (snapshot.value!["facebookData"] as? NSDictionary)?["userFirstName"] as? String ?? ""
+                            let userLastName = snapshot.value!["userLastName"] as? String ?? (snapshot.value!["facebookData"] as? NSDictionary)?["userLastName"] as? String ?? ""
                             
                             var noImage = false
                             var image = UIImage(named: "no-pic.png")
-                            if let base64String = snapshot.value!["image"] as? String! {
+                            if let base64String = snapshot.value!["image"] as? String {
                                 image = CommonUtils.sharedUtils.decodeImage(base64String)
                             } else {
                                 noImage = true
@@ -59,8 +59,7 @@ class InboxViewController: UIViewController ,UITableViewDataSource, UITableViewD
                                 let facebookData = snapshot.value!["facebookData"]
                                 let data = facebookData as! NSDictionary!
                                 self.photoURL = data.valueForKey("profilePhotoURL") as! String!
-                            }
-                            else {
+                            } else {
                                 if snapshot.hasChild("twitterData") {
                                     let facebookData = snapshot.value!["twitterData"]
                                     let data = facebookData as! NSDictionary!
