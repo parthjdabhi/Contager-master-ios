@@ -53,8 +53,9 @@ class NoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     self.ref.child("users").child(key).observeSingleEventOfType(.Value, withBlock: { (snap) in
                         if snap.exists()
                         {
-                            let userFirstName = snap.value!["userFirstName"] as! String!
-                            let userLastName = snap.value!["userLastName"] as! String!
+                            
+                            let userFirstName = snapshot.value!["userFirstName"] as? String ?? (snapshot.value!["facebookData"] as? NSDictionary)?["userFirstName"] as? String ?? ""
+                            let userLastName = snapshot.value!["userLastName"] as? String ?? (snapshot.value!["facebookData"] as? NSDictionary)?["userLastName"] as? String ?? ""
                             
                             var noImage = false
                             var image = UIImage(named: "no-pic.png")

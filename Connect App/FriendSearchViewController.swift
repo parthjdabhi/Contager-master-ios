@@ -36,8 +36,8 @@ class FriendSearchViewController: UIViewController, UITableViewDataSource, UITab
             for childSnap in  snapshot.children.allObjects {
                 let snap = childSnap as! FIRDataSnapshot
                 if userID != snap.key {
-                    let userFirstName = snap.value!["userFirstName"] as! String!
-                    let userLastName = snap.value!["userLastName"] as! String!
+                    let userFirstName = snap.value!["userFirstName"] as? String ?? (snap.value!["facebookData"] as? NSDictionary)?["userFirstName"] as? String ?? ""
+                    let userLastName = snap.value!["userLastName"] as? String ?? (snap.value!["facebookData"] as? NSDictionary)?["userLastName"] as? String ?? ""
                     
                     var noImage = false
                     var image = UIImage(named: "no-pic.png")
