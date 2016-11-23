@@ -229,6 +229,7 @@ class NoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
         AppState.sharedInstance.friend = friend
         
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("FriendPortalViewController") as! FriendPortalViewController!
+        vc.selectedNote = noteData
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

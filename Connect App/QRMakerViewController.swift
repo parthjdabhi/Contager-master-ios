@@ -40,8 +40,10 @@ class QRMakerViewController: UIViewController {
                         return qrCode!.image
                     }()
                 } else {
-                    let facebookFirstName = facebookDictionary!!["userFirstName"] as! String!
-                    let facebookLastName = facebookDictionary!!["userLastName"] as! String!
+                    
+                    let facebookFirstName = snapshot.value!["userFirstName"] as? String ?? (snapshot.value!["facebookData"] as? NSDictionary)?["userFirstName"] as? String ?? ""
+                    let facebookLastName = snapshot.value!["userLastName"] as? String ?? (snapshot.value!["facebookData"] as? NSDictionary)?["userLastName"] as? String ?? ""
+                    
                     let facebookEmail = facebookDictionary!!["email"] as! String!
                     let facebookGender = facebookDictionary!!["gender"] as! String!
                     
@@ -68,8 +70,8 @@ class QRMakerViewController: UIViewController {
                         return qrCode!.image
                     }()
                 } else {
-                    let twitterFirstName = twitterDictionary!!["userFirstName"] as! String!
-                    let twitterLastName = twitterDictionary!!["userLastName"] as! String!
+                    let twitterFirstName = snapshot.value!["userFirstName"] as? String ?? (snapshot.value!["facebookData"] as? NSDictionary)?["userFirstName"] as? String ?? ""
+                    let twitterLastName = snapshot.value!["userLastName"] as? String ?? (snapshot.value!["facebookData"] as? NSDictionary)?["userLastName"] as? String ?? ""
                     
                     self.qrTwitter.image = {
                         var qrCode = QRCode("\(twitterFirstName), \(twitterLastName)")
@@ -95,8 +97,8 @@ class QRMakerViewController: UIViewController {
                         return qrCode!.image
                     }()
                 } else {
-                    let linkedinFirstName = linkedinDictionary!!["userFirstName"] as! String!
-                    let linkedinLastName = linkedinDictionary!!["userLastName"] as! String!
+                    let linkedinFirstName = snapshot.value!["userFirstName"] as? String ?? (snapshot.value!["facebookData"] as? NSDictionary)?["userFirstName"] as? String ?? ""
+                    let linkedinLastName = snapshot.value!["userLastName"] as? String ?? (snapshot.value!["facebookData"] as? NSDictionary)?["userLastName"] as? String ?? ""
                     let linkedinHeadline = linkedinDictionary!!["headline"] as! String!
                     
                     self.qrLinkedIn.image = {

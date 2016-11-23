@@ -39,8 +39,8 @@ class ContactSocialViewController: UIViewController,UITableViewDataSource, UITab
                     uRef.observeSingleEventOfType(FIRDataEventType.Value, withBlock: { snapshot in
                         if snapshot.exists()
                         {
-                        let userFirstName = snapshot.value!["userFirstName"] as! String!
-                        let userLastName = snapshot.value!["userLastName"] as! String!
+                            let userFirstName = snapshot.value!["userFirstName"] as? String ?? (snapshot.value!["facebookData"] as? NSDictionary)?["userFirstName"] as? String ?? ""
+                            let userLastName = snapshot.value!["userLastName"] as? String ?? (snapshot.value!["facebookData"] as? NSDictionary)?["userLastName"] as? String ?? ""
                         
                         var noImage = false
                         var image = UIImage(named: "no-pic.png")

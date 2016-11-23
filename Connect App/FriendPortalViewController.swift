@@ -25,6 +25,10 @@ class FriendPortalViewController: UIViewController {
     var selectedUserId: String?
     var ref:FIRDatabaseReference!
     var filtered:[NoteData] = []
+    
+    var selectedNote: NoteData?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         optionView.hidden = true
@@ -49,21 +53,26 @@ class FriendPortalViewController: UIViewController {
                 }
             }
             
-            // Check the note of current user`s snapshot data
-            let friendId = friend.getUid()
-            let userID = FIRAuth.auth()?.currentUser?.uid
-            let noteRef = ref.child("users").child(userID!).child("notes")
-            noteRef.observeEventType(.Value, withBlock: { (snapshot) in
-                for childSnap in snapshot.children.allObjects {
-                    let snap = childSnap as! FIRDataSnapshot
-                    let dic = snap.value as! [String : String]
-                    for (key, value) in dic {
-                        if key == friendId {
-                            self.noteOnlyLabel.text = value
+            if let note = self.selectedNote {
+                self.noteOnlyLabel.text = note.getNote()
+            } else {
+                // Check the note of current user`s snapshot data
+                let friendId = friend.getUid()
+                let userID = FIRAuth.auth()?.currentUser?.uid
+                let noteRef = ref.child("users").child(userID!).child("notes")
+                noteRef.observeEventType(.Value, withBlock: { (snapshot) in
+                    for childSnap in snapshot.children.allObjects {
+                        let snap = childSnap as! FIRDataSnapshot
+                        let dic = snap.value as! [String : String]
+                        for (key, value) in dic {
+                            if key == friendId {
+                                self.noteOnlyLabel.text = value
+                            }
                         }
                     }
-                }
-            })
+                })
+            }
+            
         }
         
         image.layer.borderWidth = 2
