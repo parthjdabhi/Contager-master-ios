@@ -156,7 +156,6 @@ class InboxViewController: UIViewController ,UITableViewDataSource, UITableViewD
                 print(error.localizedDescription)
             }
             
-            
 //            FIRDatabase.database().reference().child("users").child(fid).child("userInfo").observeSingleEventOfType(.Value, withBlock: {(snapshot: FIRDataSnapshot) -> Void in
 //                
 //                let userInfo = snapshot.valueInExportFormat() as? NSMutableDictionary ?? NSMutableDictionary()
