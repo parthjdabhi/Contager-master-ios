@@ -164,7 +164,7 @@ class NoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.searchActive {
+        if self.searchBar.text != "" {
             return filtered.count
         }
         return noteArr.count
@@ -173,7 +173,7 @@ class NoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("NoteCell") as! NoteTableViewCell
         
-        if self.searchActive {
+        if self.searchBar.text != "" {
             let noteData = filtered[indexPath.row]
             let userData = noteData.getUser()
             let note = noteData.getNote()
@@ -189,8 +189,7 @@ class NoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     cell.photo.sd_setImageWithURL(NSURL(string: userData.getUserPhotoURL()), placeholderImage: UIImage(named: "no-pic.png"))
                 }
             }
-            
-        }else {
+        } else {
             let noteData = noteArr[indexPath.row]
             let userData = noteData.getUser()
             let note = noteData.getNote()
@@ -208,6 +207,13 @@ class NoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
         
+        if self.searchActive {
+            
+            
+        }else {
+            
+        }
+        
         
         
         return cell
@@ -222,14 +228,28 @@ class NoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print("Index Path: ", indexPath.row)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let noteData = noteArr[indexPath.row]
-        let friend = noteData.getUser()
-        let note = noteData.getNote()
+        if self.searchBar.text != "" {
+            let noteData = filtered[indexPath.row]
+            let friend = noteData.getUser()
+            let note = noteData.getNote()
+            
+            AppState.sharedInstance.friend = friend
+            
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("FriendPortalViewController") as! FriendPortalViewController!
+            vc.selectedNote = noteData
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        } else {
+            let noteData = noteArr[indexPath.row]
+            let friend = noteData.getUser()
+            let note = noteData.getNote()
+            
+            AppState.sharedInstance.friend = friend
+            
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("FriendPortalViewController") as! FriendPortalViewController!
+            vc.selectedNote = noteData
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
-        AppState.sharedInstance.friend = friend
-        
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("FriendPortalViewController") as! FriendPortalViewController!
-        vc.selectedNote = noteData
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
