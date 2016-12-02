@@ -88,11 +88,11 @@ class NoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             
                             if let email = snap.value!["email"] as? String {
                                 let userData = UserData(userName: self.userName!, photoURL: self.photoURL!, uid: snap.key, image: image!, email: email, noImage: noImage)
-                                let noteData = NoteData(user: userData, note: value)
+                                let noteData = NoteData(user: userData, note: value, key: snap.key)
                                 self.noteArr.append(noteData)
                             } else {
                                 let userData = UserData(userName: self.userName!, photoURL: self.photoURL!, uid: snap.key, image: image!, email: "test@test.com", noImage: noImage)
-                                let noteData = NoteData(user: userData, note: value)
+                                let noteData = NoteData(user: userData, note: value, key: snap.key)
                                 self.noteArr.append(noteData)
                             }
                             self.tableView.reloadData()
@@ -251,5 +251,52 @@ class NoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        var noteData:NoteData
+//        if self.searchBar.text != "" {
+//            noteData = filtered[indexPath.row]
+//        } else {
+//            noteData = noteArr[indexPath.row]
+//        }
+//        
+//        print(noteData.getUser().uid, " == ",  FIRAuth.auth()?.currentUser?.uid)
+//        
+//        if noteData.getUser().uid == (FIRAuth.auth()?.currentUser?.uid ?? "") {
+//            return true
+//        }
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle:   UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var noteData:NoteData
+        if self.searchBar.text != "" {
+            noteData = filtered[indexPath.row]
+        } else {
+            noteData = noteArr[indexPath.row]
+        }
+        
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            tableView.beginUpdates()
+            
+            
+            noteArr.removeAtIndex(indexPath.row)
+            //filtered = filtered.removeEqualItems(noteData)
+            
+            filtered = filtered.filter { note in
+                return note.getKey() != noteData.getKey()
+            }
+            noteArr = noteArr.filter { note in
+                return note.getKey() != noteData.getKey()
+            }
+            
+            ref.child("users").child(FIRAuth.auth()?.currentUser?.uid ?? "").child("notes").child(noteData.getKey()).removeValue()
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            tableView.endUpdates()
+            
+        }
     }
 }

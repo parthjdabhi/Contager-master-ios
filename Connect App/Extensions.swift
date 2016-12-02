@@ -21,3 +21,30 @@ extension UIApplication {
         }
     }
 }
+
+
+extension Array where Element: Equatable {
+    func arrayRemovingObject(object: Element) -> [Element] {
+        return filter { $0 != object }
+    }
+}
+
+extension Array where Element: Equatable {
+    
+    mutating func removeEqualItems(item: Element) {
+        self = self.filter { (currentItem: Element) -> Bool in
+            return currentItem != item
+        }
+    }
+    
+    mutating func removeFirstEqualItem(item: Element) {
+        guard var currentItem = self.first else { return }
+        var index = 0
+        while currentItem != item {
+            index += 1
+            currentItem = self[index]
+        }
+        self.removeAtIndex(index)
+    }
+    
+}
