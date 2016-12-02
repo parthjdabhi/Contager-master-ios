@@ -41,13 +41,13 @@ class NoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         CommonUtils.sharedUtils.showProgress(self.view, label: "Loading...")
         dispatch_group_enter(myGroup)
-        noteRef.observeEventType(.Value, withBlock: { (snapshot) in
+        noteRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             self.noteArr.removeAll()
             self.filtered.removeAll()
             self.userArr.removeAll()
             for childSnap in snapshot.children.allObjects {
-                let snap = childSnap as! FIRDataSnapshot
-                let dic = snap.value as! [String : String]
+                let snapData = childSnap as! FIRDataSnapshot
+                let dic = snapData.value as! [String : String]
                 for (key, value) in dic {
                     dispatch_group_enter(myGroup)
                     self.ref.child("users").child(key).observeSingleEventOfType(.Value, withBlock: { (snap) in
@@ -88,11 +88,11 @@ class NoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             
                             if let email = snap.value!["email"] as? String {
                                 let userData = UserData(userName: self.userName!, photoURL: self.photoURL!, uid: snap.key, image: image!, email: email, noImage: noImage)
-                                let noteData = NoteData(user: userData, note: value, key: snap.key)
+                                let noteData = NoteData(user: userData, note: value, key: snapData.key)
                                 self.noteArr.append(noteData)
                             } else {
                                 let userData = UserData(userName: self.userName!, photoURL: self.photoURL!, uid: snap.key, image: image!, email: "test@test.com", noImage: noImage)
-                                let noteData = NoteData(user: userData, note: value, key: snap.key)
+                                let noteData = NoteData(user: userData, note: value, key: snapData.key)
                                 self.noteArr.append(noteData)
                             }
                             self.tableView.reloadData()
@@ -271,28 +271,30 @@ class NoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle:   UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        var noteData:NoteData
+        var noteData:NoteData?
         if self.searchBar.text != "" {
             noteData = filtered[indexPath.row]
         } else {
             noteData = noteArr[indexPath.row]
         }
         
-        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            tableView.beginUpdates()
+        if let note = noteData
+            where (editingStyle == UITableViewCellEditingStyle.Delete)
+        {
             
+            tableView.beginUpdates()
             
             noteArr.removeAtIndex(indexPath.row)
             //filtered = filtered.removeEqualItems(noteData)
             
             filtered = filtered.filter { note in
-                return note.getKey() != noteData.getKey()
+                return note.getKey() != noteData!.getKey()
             }
             noteArr = noteArr.filter { note in
-                return note.getKey() != noteData.getKey()
+                return note.getKey() != noteData!.getKey()
             }
             
-            ref.child("users").child(FIRAuth.auth()?.currentUser?.uid ?? "").child("notes").child(noteData.getKey()).removeValue()
+            ref.child("users").child(FIRAuth.auth()?.currentUser?.uid ?? "").child("notes").child(noteData!.getKey()).removeValue()
             
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             tableView.endUpdates()
