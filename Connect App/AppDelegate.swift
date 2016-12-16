@@ -18,6 +18,7 @@ import Firebase
 import OAuthSwift
 import Batch
 import WebKit
+import Instabug
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -32,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         Fabric.with([Crashlytics.self,Twitter.self])
         //Fabric.with([Twitter.self])
+        
+        Instabug.startWithToken("8b933acae79a8af54ebfce6bc9738b80", invocationEvent: IBGInvocationEvent.TwoFingersSwipeLeft)
         
         let mixpanel = Mixpanel.sharedInstanceWithToken("eea743c8c06c09db361391e7a7f02015")
         mixpanel.track("App launched")

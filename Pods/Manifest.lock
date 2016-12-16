@@ -105,6 +105,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.4)
   - GTMSessionFetcher/Full (1.1.4):
     - GTMSessionFetcher/Core (= 1.1.4)
+  - Instabug (5.3.2)
   - InstagramKit (3.8):
     - AFNetworking (~> 3.0)
     - InstagramKit/Exclude-UICKeyChainStore (= 3.8)
@@ -155,6 +156,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - GoogleAPIClient/Calendar (~> 1.0.2)
   - GTMOAuth2 (~> 1.1.0)
+  - Instabug
   - InstagramKit (~> 3.0)
   - InstagramKit/UICKeyChainStore
   - IQDropDownTextField (~> 1.0)
@@ -200,6 +202,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   GTMOAuth2: bdb12f3e0d2110bfe585f6151230b883beb4d042
   GTMSessionFetcher: 174bc61d5238f81f9ddb807b0b0170420f67de85
+  Instabug: 035bf24475ffac1bcb81f8c542774487bc72f528
   InstagramKit: 402d6bba375357b548039de08eea19a1b8716354
   IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
   IQKeyboardManagerSwift: 41fd3a45a2cdb2a0e031af697708a95b865068a1
@@ -218,6 +221,6 @@ SPEC CHECKSUMS:
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
 
-PODFILE CHECKSUM: 57778aa90a8c2abbd0846f093878df91f257a63b
+PODFILE CHECKSUM: a49e7f1fee8cbd2e99fd4e42f3b7257522287415
 
 COCOAPODS: 1.0.1

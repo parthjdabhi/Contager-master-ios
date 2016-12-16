@@ -7,8 +7,10 @@ target 'Contage' do
     pod 'FBSDKCoreKit'
     pod 'FBSDKLoginKit'
     pod 'FBSDKShareKit'
+    
     pod 'Fabric'
     pod 'Crashlytics'
+    
     pod 'TwitterKit'
     pod 'TwitterCore'
     pod 'Firebase'
@@ -48,5 +50,7 @@ target 'Contage' do
     pod 'UIActivityIndicator-for-SDWebImage', '~> 1.2’
     
     pod 'SVProgressHUD', '~> 2.0'
+    
+    pod 'Instabug'
     
 end

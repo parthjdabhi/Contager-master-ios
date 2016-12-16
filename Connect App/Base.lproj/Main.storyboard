@@ -3281,6 +3281,9 @@
                                     <constraint firstAttribute="width" constant="81" id="Nbv-s1-X4s"/>
                                 </constraints>
                                 <state key="normal" title="Contacts" image="ic_calls_social.png"/>
+                                <connections>
+                                    <segue destination="Ib1-yU-EMR" kind="show" id="btD-aH-DbG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9f-rG-htO">
                                 <rect key="frame" x="18" y="28" width="59" height="53"/>
@@ -4149,11 +4152,12 @@
         <image name="present-100" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jaB-yx-N8q"/>
-        <segue reference="TAY-tf-Adg"/>
-        <segue reference="JTp-X1-g3F"/>
-        <segue reference="F6Q-lH-9Yb"/>
         <segue reference="7Ar-Py-bA4"/>
-        <segue reference="f6G-AX-seA"/>
+        <segue reference="jaB-yx-N8q"/>
+        <segue reference="qYL-kK-Sl6"/>
+        <segue reference="F6Q-lH-9Yb"/>
+        <segue reference="QBb-4R-q1C"/>
+        <segue reference="1xd-Sx-xIs"/>
+        <segue reference="btD-aH-DbG"/>
     </inferredMetricsTieBreakers>
 </document>

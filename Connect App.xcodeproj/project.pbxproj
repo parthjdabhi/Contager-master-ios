@@ -719,7 +719,7 @@
 				TargetAttributes = {
 					DA48CFFF1D175FB300C81161 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 67RKNLXTTN;
+						DevelopmentTeam = HBY9D8A5WD;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -876,7 +876,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 09950107d7958fda64c46553fb70f08f310d0875 0a2b26a9ba797825f386c87c30d94712a9fe7574a8689d3e8620c402dac8bf09\U0010";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 57479d0a01c79f5b51b4b6251ae0fcc3231f7b7b 1bd4b0a41520f405ee52e690319c7f96849d213c0f9c6d6921f81b2f417fb275";
 		};
 		E1B1BE55ADBEF0DDC09B00BC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1108,7 +1108,7 @@
 				);
 				INFOPLIST_FILE = "Connect App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.harloch.Snagged;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harloch.SnaggedDev;
 				PRODUCT_MODULE_NAME = Contager;
 				PRODUCT_NAME = Contager;
 				PROVISIONING_PROFILE = "";
@@ -1133,7 +1133,7 @@
 				);
 				INFOPLIST_FILE = "Connect App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.harloch.Snagged;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harloch.SnaggedDev;
 				PRODUCT_MODULE_NAME = Contager;
 				PRODUCT_NAME = Contager;
 				PROVISIONING_PROFILE = "";

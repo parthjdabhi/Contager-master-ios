@@ -81,10 +81,12 @@ EOM
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "Batch/Batch.embeddedframework/Batch.bundle"
+  install_resource "Instabug/Instabug.bundle"
   install_resource "TwitterKit/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "Batch/Batch.embeddedframework/Batch.bundle"
+  install_resource "Instabug/Instabug.bundle"
   install_resource "TwitterKit/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle"
 fi
 
