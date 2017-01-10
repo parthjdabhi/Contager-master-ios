@@ -10,16 +10,23 @@ import Foundation
 import CoreData
 
 
-class Activity: NSManagedObject {
 
-    convenience init(detail: String, context: NSManagedObjectContext){
-        if let ent = NSEntityDescription.entityForName("Activity", inManagedObjectContext: context){
-            self.init(entity: ent, insertIntoManagedObjectContext: context)
-            self.detail = detail
-        }else{
-            fatalError("Unable to find entity name!")
-        }
+class Activity: NSObject {
+
+    var key: String?
+    var category: String?
+    var detail: String?
+    var icon: String?
+    var selectedDate: NSDate?
+    var time: NSDate?
+    var date: NSDate?
+    
+    override init() {
+        
     }
-
-
+    
+    init(key: String)
+    {
+        self.key = key
+    }
 }

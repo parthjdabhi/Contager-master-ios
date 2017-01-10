@@ -8,12 +8,13 @@
 
 import UIKit
 import CoreData
+import Firebase
 
-protocol InputPlansViewControllerDelegate{
-    func fetchActivities(selectedDate: NSDate?)
+protocol InputPlansViewControllerDelegate {
+    func addActivities(newActivity: Activity)
 }
 
-class InputPlansViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
+class InputPlansViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
 //MARK: -Outlets
     @IBOutlet weak var categoryPickerView: UIPickerView!
@@ -27,7 +28,7 @@ class InputPlansViewController: UIViewController, UITextFieldDelegate, UIPickerV
         return CoreDataStack.sharedInstance.context
     }
     var userSetTime: NSDate?
-    var currentDate: DateShort?
+    var currentDate: NSDate?
     var selectedDate: NSDate?
     var delegate: InputPlansViewControllerDelegate?
     var imageStrings = [
@@ -40,16 +41,20 @@ class InputPlansViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     var selectedCategoryIndex: Int?
     
+    var ref = FIRDatabase.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         categoryPickerView.dataSource = self
         categoryPickerView.delegate = self
         plansTextField.delegate = self
-        datePickerView.addTarget(self, action: Selector("datePickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(InputPlansViewController.datePickerChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         print("currentDate is \(currentDate)!!!")
     }
     
-    func datePickerChanged(sender: AnyObject?){
+    func datePickerChanged(sender: AnyObject?)
+    {
         let formatter = NSDateFormatter()
         formatter.timeStyle = .ShortStyle
         
@@ -59,17 +64,37 @@ class InputPlansViewController: UIViewController, UITextFieldDelegate, UIPickerV
         
     }
     
-    func updateTable(selectedDate: NSDate?){
-        delegate?.fetchActivities(selectedDate)
+    func updateTable(activity: Activity) {
+        delegate?.addActivities(activity)
     }
     
     @IBAction func cancel(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func done(sender: AnyObject) {
-        if plansTextField.text != ""{
-            let activity = Activity(detail: plansTextField.text!, context: self.context)
+    @IBAction func done(sender: AnyObject)
+    {
+        // Save Clender item
+        if plansTextField.text != "" {
+            
+            let userID = FIRAuth.auth()?.currentUser?.uid ?? ""
+            
+            var dic = ["uid" : userID ] as [String:AnyObject]
+            dic["detail"] = plansTextField.text ?? "detail"
+            dic["time"] = "\(userSetTime?.timeIntervalSince1970 ?? datePickerView.date.timeIntervalSince1970)"
+            dic["selectedDate"] = "\(selectedDate?.timeIntervalSince1970 ?? datePickerView.date.timeIntervalSince1970)"
+            dic["createdAt"] = "\(NSDate().timeIntervalSince1970)"
+            print("activity --> \(dic)!!!")
+            
+            if let selectedCategoryIndex = selectedCategoryIndex {
+                dic["category"] = imageStrings[selectedCategoryIndex]
+            }
+            
+            ref.child("users").child(userID).child("Activity").childByAutoId().setValue(dic)
+            
+            
+            let activity = Activity()
+            activity.detail = plansTextField.text
             activity.time = userSetTime ?? datePickerView.date
             activity.date = currentDate
             activity.selectedDate = selectedDate
@@ -77,15 +102,20 @@ class InputPlansViewController: UIViewController, UITextFieldDelegate, UIPickerV
             if let selectedCategoryIndex = selectedCategoryIndex{
                 activity.category = imageStrings[selectedCategoryIndex]
             }
-            do{
-               try context.save()
-            }catch{}
             
-            updateTable(selectedDate)
             
-            dismissViewControllerAnimated(true, completion: nil)
-        }else{
+            let alert = UIAlertController(title: "Notification", message: "Your calender activity Has Been Saved", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in
+                //self.dismissViewControllerAnimated(true, completion: nil)
+                //self.navigationController?.popViewControllerAnimated(true)  //Changed to Push
+                //self.updateTable(activity)
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
             displayError("Oops. You didn't enter any texts")
+            //CommonUtils.sharedUtils.showAlert(self, title: "Error", message: "Please input the description.")
         }
     }
     

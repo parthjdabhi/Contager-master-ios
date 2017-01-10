@@ -10,6 +10,7 @@ import JTAppleCalendar
 import CoreData
 import GoogleAPIClient
 import GTMOAuth2
+import Firebase
 
 class CalendarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource/*,NSFetchedResultsControllerDelegate*/, InputPlansViewControllerDelegate{
 
@@ -39,14 +40,16 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    var ref = FIRDatabase.database().reference()
     var activities = [Activity]()
+    var activitiesOnDay = [Activity]()
     
-    var currentDate: DateShort?
+    var currentDate: NSDate?
     var context: NSManagedObjectContext{
         return CoreDataStack.sharedInstance.context
     }
     
-    var datesWithPlans = [DateShort]()
+    var datesWithPlans = [NSDate]()
     
     let formatter = NSDateFormatter()
     let testCalendar: NSCalendar! = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
@@ -64,8 +67,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         googleInfo.text = output*/
         
-        deleteButton.hidden = true
         
+        deleteButton.hidden = true
         googleInfo = output
         
         if let auth = GTMOAuth2ViewControllerTouch.authForGoogleFromKeychainForName(
@@ -131,6 +134,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             let currentDate = self.calendarView.currentCalendarDateSegment()
             self.setupViewsOfCalendar(currentDate.startDate, endDate: currentDate.endDate)
         }
+        
+        getCalenderDetails()
     }
     
     // When the view appears, ensure that the Google Calendar API service is authorized
@@ -146,6 +151,48 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
                 completion: nil
             )
         }
+    }
+    
+    func getCalenderDetails() {
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        let CalenderRef = ref.child("users").child(userID!).child("Activity")
+        
+        let frRef = ref.child("users").child(userID!).child("friends")
+        CommonUtils.sharedUtils.showProgress(self.view, label: "Loading..")
+        print("Started")
+        
+        CalenderRef.observeEventType(.Value, withBlock: { snapshot in
+            
+            self.activities.removeAll()
+            print(snapshot.value)
+            CommonUtils.sharedUtils.hideProgress()
+            
+            for childSnap in  snapshot.children.allObjects {
+                let snap = childSnap as! FIRDataSnapshot
+                print(" value - \(childSnap.valueInExportFormat() as? NSDictionary) ")
+                
+                let detail = snap.value!["detail"] as? String ?? ""
+                let category = snap.value!["category"] as? String ?? ""
+                let selectedDate = (Double(snap.value!["selectedDate"] as? String ?? "0"))?.asDateFromMiliseconds
+                let time = (Double(snap.value!["time"] as? String ?? "0"))?.asDateFromMiliseconds
+                
+                var activity = Activity()
+                activity.key = childSnap.key
+                activity.detail = detail
+                activity.category = category
+                activity.selectedDate = selectedDate
+                activity.time = time
+                
+                self.activities.append(activity)
+            }
+            
+            self.fetchActivities(NSDate())
+            
+            self.plansTableView.reloadData()
+            
+        })
+
+        
     }
     
     // Construct a query and get a list of upcoming events from the user calendar
@@ -239,21 +286,36 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     func fetchActivities(selectedDate: NSDate?){
         
-        let fr = NSFetchRequest(entityName: "Activity")
-        fr.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
-        if let selectedDate = selectedDate{
-            print("selectedDate in func fetchActivitiesis \(selectedDate)!")
-            fr.predicate = NSPredicate(format: "selectedDate == %@", selectedDate)
-        }
+//        let fr = NSFetchRequest(entityName: "Activity")
+//        fr.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
+//        if let selectedDate = selectedDate{
+//            print("selectedDate in func fetchActivitiesis \(selectedDate)!")
+//            fr.predicate = NSPredicate(format: "selectedDate == %@", selectedDate)
+//        }
+//        
+//        do{
+//            try activities = context.executeFetchRequest(fr) as! [Activity]
+//        }catch{
+//            activities = [Activity]()
+//        }
         
-        do{
-            try activities = context.executeFetchRequest(fr) as! [Activity]
-        }catch{
-            activities = [Activity]()
-        }
+        activitiesOnDay = activities.filter({ (activity) -> Bool in
+            if compareDate(activity.selectedDate!, date2: selectedDate!)
+            {
+                return true
+            }
+            return false
+        })
         
         plansTableView.reloadData()
         
+    }
+    
+    func addActivities(newActivity: Activity)
+    {
+        activities.append(newActivity)
+        
+        plansTableView.reloadData()
     }
 
     
@@ -269,16 +331,16 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func deleteAction(sender: AnyObject) {
-        let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let context:NSManagedObjectContext = appDel.managedObjectContext
-        context.deleteObject(currentDate!)
+        //let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        //let context:NSManagedObjectContext = appDel.managedObjectContext
+        //context.deleteObject(currentDate!)
         //currentDate!.removeAtIndex
-        do {
-            try context.save()
-        } catch _ {
-        }
-        viewDidLoad()
-        viewDidAppear(true)
+//        do {
+//            try context.save()
+//        } catch _ {
+//        }
+//        viewDidLoad()
+//        viewDidAppear(true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -336,45 +398,45 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
         (cell as? CellView)?.cellSelectionChanged(cellState)
 
         
-        let fr = NSFetchRequest(entityName: "Date")
-        do{
-            print("Will try to fetch existing dates")
-            datesWithPlans = try context.executeFetchRequest(fr) as! [DateShort]
-        }catch let e as NSError{
-            print("Error in fetchrequest: \(e)")
-            datesWithPlans = [DateShort]()
-        }
-
-        if datesWithPlans.isEmpty{
-            print("No existing dates, will create a new Date now!")
-            let newDate = DateShort(date: date, context: self.context)
-            currentDate = newDate
-        }else{
-            print("There are existing dates. Will try to find one that matches the selected Dates")
-            for dateWithPlans in datesWithPlans {
-                if dateWithPlans.date == date{
-                    print("Found an existing date that matches the currently selected date!")
-                    currentDate = dateWithPlans
-                    deleteButton.hidden = false
-                    print("currentDate is \(currentDate)")
-                    break
-                }
-            }
-            
-            if currentDate?.date == date{
-                print("currentDate is \(currentDate)")
-            }else{
-                
-                print("Exsiting dates don't include this currently selected date. Now to create a new Date!")
-                let newDate = DateShort(date: date, context: self.context)
-                currentDate = newDate
-                print("currentDate is \(currentDate)")
-            }
-        }
-        
-        do{
-            try context.save()
-        }catch{}
+//        let fr = NSFetchRequest(entityName: "Date")
+//        do{
+//            print("Will try to fetch existing dates")
+//            datesWithPlans = try context.executeFetchRequest(fr) as! [DateShort]
+//        }catch let e as NSError{
+//            print("Error in fetchrequest: \(e)")
+//            datesWithPlans = [DateShort]()
+//        }
+//
+//        if datesWithPlans.isEmpty{
+//            print("No existing dates, will create a new Date now!")
+//            let newDate = DateShort(date: date, context: self.context)
+//            currentDate = newDate
+//        }else{
+//            print("There are existing dates. Will try to find one that matches the selected Dates")
+//            for dateWithPlans in datesWithPlans {
+//                if dateWithPlans.date == date{
+//                    print("Found an existing date that matches the currently selected date!")
+//                    currentDate = dateWithPlans
+//                    deleteButton.hidden = false
+//                    print("currentDate is \(currentDate)")
+//                    break
+//                }
+//            }
+//            
+//            if currentDate?.date == date{
+//                print("currentDate is \(currentDate)")
+//            }else{
+//                
+//                print("Exsiting dates don't include this currently selected date. Now to create a new Date!")
+//                let newDate = DateShort(date: date, context: self.context)
+//                currentDate = newDate
+//                print("currentDate is \(currentDate)")
+//            }
+//        }
+//        
+//        do{
+//            try context.save()
+//        }catch{}
         
         addPlansButton.enabled = true
         
@@ -422,7 +484,7 @@ extension CalendarViewController{
     //MARK: UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return activities.count
+        return activitiesOnDay.count
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -433,7 +495,7 @@ extension CalendarViewController{
         
         cell.backgroundColor = UIColor(hue: 0.4417, saturation: 0.32, brightness: 0.68, alpha: 1.0)
         
-        let activity = activities[indexPath.row]
+        let activity = activitiesOnDay[indexPath.row]
         formatter.timeStyle = .ShortStyle
         let strTime = formatter.stringFromDate(activity.time!)
         cell.planLabel.text = activity.detail
@@ -449,15 +511,11 @@ extension CalendarViewController{
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         switch editingStyle {
         case .Delete:
-            // remove the deleted item from the model
-            //let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            //let context:NSManagedObjectContext = appDel.managedObjectContext
-            self.context.deleteObject(activities[indexPath.row] )
+            
+            //activitiesOnDay
+            //self.context.deleteObject(activities[indexPath.row] )
             activities.removeAtIndex(indexPath.row)
-            do {
-                try self.context.save()
-            } catch _ {
-            }
+            //Remove From firebase
             
             // remove the deleted item from the `UITableView`
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)

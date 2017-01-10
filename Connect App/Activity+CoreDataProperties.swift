@@ -9,16 +9,16 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-import Foundation
-import CoreData
-
-extension Activity {
-
-    @NSManaged var category: String?
-    @NSManaged var detail: String?
-    @NSManaged var icon: String?
-    @NSManaged var selectedDate: NSDate?
-    @NSManaged var time: NSDate?
-    @NSManaged var date: DateShort?
-
-}
+//import Foundation
+//import CoreData
+//
+//extension Activity {
+//
+//    @NSManaged var category: String?
+//    @NSManaged var detail: String?
+//    @NSManaged var icon: String?
+//    @NSManaged var selectedDate: NSDate?
+//    @NSManaged var time: NSDate?
+//    @NSManaged var date: DateShort?
+//
+//}

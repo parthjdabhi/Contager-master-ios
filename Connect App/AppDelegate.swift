@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 //        AppState.sharedInstance.signedIn = false
         
         // *****************
-        // Testing Signin ing with custom token
+        // Testing Signing with custom token
         // *****************
         
         //FIRAuth.auth()?.signInWithCustomToken(<#T##token: String##String#>, completion: <#T##FIRAuthResultCallback?##FIRAuthResultCallback?##(FIRUser?, NSError?) -> Void#>)
@@ -54,12 +54,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 //    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOm51bGwsInN1YiI6bnVsbCwiYXVkIjoiaHR0cHM6XC9cL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbVwvZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJpYXQiOjE0NzE4Nzg5NDksImV4cCI6MTQ3MTg4MjU0OSwidWlkIjoiOHl6ZlBrR1dsaWZwZTBrUEhCdzBGdXBSTG0xMiJ9.49tUA3iJmRHEWycnvdxlinicv8V_faKDL6pScnig_7I"
 //        //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOm51bGwsInN1YiI6bnVsbCwiYXVkIjoiaHR0cHM6XC9cL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbVwvZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJpYXQiOjE0NzE4Nzg5NDksImV4cCI6MTQ3MTg4MjU0OSwidWlkIjoiOHl6ZlBrR1dsaWZwZTBrUEhCdzBGdXBSTG0xMiJ9.49tUA3iJmRHEWycnvdxlinicv8V_faKDL6pScnig_7I"
 //        //"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhZG1pbiI6ZmFsc2UsImRlYnVnIjpmYWxzZSwiZCI6eyJ1aWQiOiI4eXpmUGtHV2xpZnBlMGtQSEJ3MEZ1cFJMbTEyIn0sInYiOjAsImlhdCI6MTQ3MTg1NTAwNn0.daHqSVhPzXo99zDMlykhdjXyU-EZ2LNfh8XumdclYYE"
-//        
+        
 //        FIRAuth.auth()?.signInWithCustomToken(token) { (user, error) in
 //            print(user)
 //            print(error)
 //        }
-        
         
         Batch.startWithAPIKey("DEV577B171987416C3DD0A5E0F8927")
         
