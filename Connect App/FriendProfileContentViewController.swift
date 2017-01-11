@@ -96,6 +96,17 @@ class FriendProfileContentViewController: UIViewController, MFMessageComposeView
         return UIStatusBarStyle.LightContent
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print(" segue.identifier - \(segue.identifier)")
+        if segue.identifier == "showInput" {
+//            let vc = segue.destinationViewController as! InputPlansViewController
+//            vc.delegate = self
+//            vc.currentDate = currentDate
+//            vc.selectedDate = selectedDate
+//            vc.userID = self.userID
+        }
+    }
+    
     @IBAction func homeButton(sender: AnyObject) {
         //self.dismissViewControllerAnimated(true, completion: nil)
         self.navigationController?.popViewControllerAnimated(true)  //Changed to Push
@@ -116,6 +127,7 @@ class FriendProfileContentViewController: UIViewController, MFMessageComposeView
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }}
+    
     @IBAction func phoneButton(sender: AnyObject) {
         ref = FIRDatabase.database().reference()
         let userID = AppState.sharedInstance.friend?.getUid()
@@ -134,9 +146,14 @@ class FriendProfileContentViewController: UIViewController, MFMessageComposeView
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
             }
-            }
-        )}
+        })
+    }
     
+    @IBAction func calenderActivityButton(sender: AnyObject) {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CalendarViewController") as! CalendarViewController!
+        vc.userID = AppState.sharedInstance.friend?.getUid() ?? FIRAuth.auth()?.currentUser?.uid ?? ""
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     @IBAction func textButton(sender: AnyObject) {

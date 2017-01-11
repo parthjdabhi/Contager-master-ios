@@ -39,9 +39,11 @@ class InputPlansViewController: UIViewController, UITextFieldDelegate, UIPickerV
         "hot-chocolate-xxl.png"
     ]
     
-    var selectedCategoryIndex: Int?
+    var selectedCategoryIndex: Int? = 0
     
     var ref = FIRDatabase.database().reference()
+    
+    var userID = FIRAuth.auth()?.currentUser?.uid ?? ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +79,6 @@ class InputPlansViewController: UIViewController, UITextFieldDelegate, UIPickerV
         // Save Clender item
         if plansTextField.text != "" {
             
-            let userID = FIRAuth.auth()?.currentUser?.uid ?? ""
             
             var dic = ["uid" : userID ] as [String:AnyObject]
             dic["detail"] = plansTextField.text ?? "detail"
@@ -108,7 +109,7 @@ class InputPlansViewController: UIViewController, UITextFieldDelegate, UIPickerV
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in
                 //self.dismissViewControllerAnimated(true, completion: nil)
                 //self.navigationController?.popViewControllerAnimated(true)  //Changed to Push
-                //self.updateTable(activity)
+                self.updateTable(activity)
                 self.dismissViewControllerAnimated(true, completion: nil)
             }))
             
@@ -133,8 +134,8 @@ class InputPlansViewController: UIViewController, UITextFieldDelegate, UIPickerV
     }
     
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-        var componentView = UIView(frame: CGRectMake(0, 0, pickerView.bounds.width - 30, 60))
-        var componentImageView = UIImageView(frame: CGRectMake(0, 0, 50, 50))
+        let componentView = UIView(frame: CGRectMake(0, 0, pickerView.bounds.width - 30, 60))
+        let componentImageView = UIImageView(frame: CGRectMake(0, 0, 50, 50))
         
         var rowString = String()
         switch row{

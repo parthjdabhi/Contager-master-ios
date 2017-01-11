@@ -2198,6 +2198,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="OaL-HK-7Fn"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="calendarView" destination="RgI-ND-gzM" id="pmA-1F-uLG"/>
                         <outlet property="daysOutSwitch" destination="ho4-8F-tFd" id="qNi-xT-jdT"/>
@@ -3450,7 +3451,7 @@
                                 </constraints>
                                 <state key="normal" title="Calendar" image="BlueCalendar.png"/>
                                 <connections>
-                                    <segue destination="mlh-B4-5Oj" kind="show" id="9Al-Ln-rZj"/>
+                                    <action selector="calenderActivityButton:" destination="Ib1-yU-EMR" eventType="touchUpInside" id="L4F-rH-rRw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MF-db-HOJ">
@@ -4152,12 +4153,12 @@
         <image name="present-100" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7Ar-Py-bA4"/>
-        <segue reference="jaB-yx-N8q"/>
-        <segue reference="qYL-kK-Sl6"/>
-        <segue reference="F6Q-lH-9Yb"/>
-        <segue reference="QBb-4R-q1C"/>
-        <segue reference="1xd-Sx-xIs"/>
         <segue reference="btD-aH-DbG"/>
+        <segue reference="1xd-Sx-xIs"/>
+        <segue reference="7Ar-Py-bA4"/>
+        <segue reference="TAY-tf-Adg"/>
+        <segue reference="QBb-4R-q1C"/>
+        <segue reference="F6Q-lH-9Yb"/>
+        <segue reference="jaB-yx-N8q"/>
     </inferredMetricsTieBreakers>
 </document>

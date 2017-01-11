@@ -49,6 +49,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         return CoreDataStack.sharedInstance.context
     }
     
+    var userID = FIRAuth.auth()?.currentUser?.uid ?? ""
+    
     var datesWithPlans = [NSDate]()
     
     let formatter = NSDateFormatter()
@@ -86,8 +88,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(swipeLeft)
         
-        addPlansButton.enabled = false
         
+        addPlansButton.enabled = false
         formatter.dateFormat = "yyyy MM dd"
         testCalendar.timeZone = NSTimeZone(abbreviation: "GMT")!
         
@@ -153,15 +155,14 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    func getCalenderDetails() {
-        let userID = FIRAuth.auth()?.currentUser?.uid
-        let CalenderRef = ref.child("users").child(userID!).child("Activity")
+    func getCalenderDetails()
+    {
+        let CalenderRef = ref.child("users").child(userID).child("Activity")
         
-        let frRef = ref.child("users").child(userID!).child("friends")
         CommonUtils.sharedUtils.showProgress(self.view, label: "Loading..")
         print("Started")
         
-        CalenderRef.observeEventType(.Value, withBlock: { snapshot in
+        CalenderRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             self.activities.removeAll()
             print(snapshot.value)
@@ -176,7 +177,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
                 let selectedDate = (Double(snap.value!["selectedDate"] as? String ?? "0"))?.asDateFromMiliseconds
                 let time = (Double(snap.value!["time"] as? String ?? "0"))?.asDateFromMiliseconds
                 
-                var activity = Activity()
+                let activity = Activity()
                 activity.key = childSnap.key
                 activity.detail = detail
                 activity.category = category
@@ -185,14 +186,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 self.activities.append(activity)
             }
-            
-            self.fetchActivities(NSDate())
-            
+            self.fetchActivities(self.selectedDate ?? NSDate())
             self.plansTableView.reloadData()
-            
         })
-
-        
     }
     
     // Construct a query and get a list of upcoming events from the user calendar
@@ -249,7 +245,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             clientSecret: nil,
             keychainItemName: kKeychainItemName,
             delegate: self,
-            finishedSelector: "viewController:finishedWithAuth:error:"
+            finishedSelector: #selector(CalendarViewController.viewController(_:finishedWithAuth:error:))
         )
     }
     
@@ -313,9 +309,10 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     func addActivities(newActivity: Activity)
     {
-        activities.append(newActivity)
-        
-        plansTableView.reloadData()
+        //activities.append(newActivity)
+        //fetchActivities(selectedDate)
+        //plansTableView.reloadData()
+        self.getCalenderDetails()
     }
 
     
@@ -349,6 +346,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             vc.delegate = self
             vc.currentDate = currentDate
             vc.selectedDate = selectedDate
+            vc.userID = self.userID
         }
     }
     
@@ -376,7 +374,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
 }
 
 // MARK : JTAppleCalendarDelegate
-extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
+extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate
+{
     func configureCalendar(calendar: JTAppleCalendarView) -> (startDate: NSDate, endDate: NSDate, numberOfRows: Int, calendar: NSCalendar) {
         
         let firstDate = formatter.dateFromString("2016 01 01")
@@ -396,7 +395,6 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
     
     func calendar(calendar: JTAppleCalendarView, didSelectDate date: NSDate, cell: JTAppleDayCellView?, cellState: CellState) {
         (cell as? CellView)?.cellSelectionChanged(cellState)
-
         
 //        let fr = NSFetchRequest(entityName: "Date")
 //        do{
@@ -438,8 +436,13 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
 //            try context.save()
 //        }catch{}
         
-        addPlansButton.enabled = true
         
+        if let uid = FIRAuth.auth()?.currentUser?.uid where userID == uid {
+            self.addPlansButton.enabled = true
+        } else {
+            self.addPlansButton.enabled = false
+        }
+        //
         selectedDate = date
         //executeSearch()
         
@@ -480,7 +483,8 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
     }
 }
 
-extension CalendarViewController{
+extension CalendarViewController {
+    
     //MARK: UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -500,7 +504,7 @@ extension CalendarViewController{
         let strTime = formatter.stringFromDate(activity.time!)
         cell.planLabel.text = activity.detail
         cell.timeLabel.text = strTime
-        if let imageString = activity.category{
+        if let imageString = activity.category {
             cell.planIconImageView.image = UIImage(named: imageString)
         }
         
@@ -508,13 +512,34 @@ extension CalendarViewController{
         return cell
     }
 
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if let uid = FIRAuth.auth()?.currentUser?.uid where userID == uid {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
         switch editingStyle {
         case .Delete:
-            
             //activitiesOnDay
-            //self.context.deleteObject(activities[indexPath.row] )
-            activities.removeAtIndex(indexPath.row)
+            //self.context.deleteObject(activities[indexPath.row])
+            let activity = activitiesOnDay[indexPath.row]
+            if let key = activity.key {
+                //CommonUtils.sharedUtils.showProgress(self.view, label: "Loading..")
+                //CommonUtils.sharedUtils.hideProgress()
+                ref.child("users").child(userID).child("Activity").child(key).removeValue()
+                activitiesOnDay.removeAtIndex(indexPath.row)
+                activities = activities.filter({ (activity) -> Bool in
+                    if let activityKey = activity.key where activityKey == key {
+                        return false
+                    } else {
+                        return true
+                    }
+                })
+            }
             //Remove From firebase
             
             // remove the deleted item from the `UITableView`
